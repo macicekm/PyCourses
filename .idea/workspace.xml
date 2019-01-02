@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c70e15d6-d39b-41bb-8489-7c82c4ff30fb" name="Default" comment="" />
+    <list default="true" id="c70e15d6-d39b-41bb-8489-7c82c4ff30fb" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoWebApp1/mysite/polls/templates/polls/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/DjangoWebApp1/mysite/polls/templates/polls/detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoWebApp1/mysite/polls/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjangoWebApp1/mysite/polls/views.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -11,11 +15,80 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DjangoWebApp1/mysite/mysite/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
+            <state relative-caret-position="612">
               <caret line="36" column="34" selection-start-line="36" selection-start-column="34" selection-end-line="36" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="15" selection-start-line="15" selection-end-line="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="admin.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DjangoWebApp1/mysite/polls/admin.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="8" selection-start-line="8" selection-end-line="8" />
+              <folding>
+                <element signature="e#0#32#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="intro.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DjangoWebApp1/mysite/polls/intro.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="1" selection-start-column="1" selection-end-column="56" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="detail.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DjangoWebApp1/mysite/polls/templates/polls/detail.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DjangoWebApp1/mysite/polls/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="340">
+              <caret line="23" column="31" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/DjangoWebApp1/mysite/polls/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="548">
+              <caret line="34" column="8" lean-forward="true" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="8" />
+              <folding>
+                <element signature="e#0#54#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/DjangoWebApp1/mysite/polls/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -32,8 +105,9 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>if os.sys.platform == 'win32':</find>
+      <find />
       <find>diction</find>
+      <find>what</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -65,11 +139,12 @@
         <option value="$PROJECT_DIR$/DjangoWebApp1/mysite/polls/apps.py" />
         <option value="$PROJECT_DIR$/DjangoWebApp1/mysite/mysite/settings.py" />
         <option value="$PROJECT_DIR$/DjangoWebApp1/mysite/polls/models.py" />
-        <option value="$PROJECT_DIR$/DjangoWebApp1/mysite/polls/intro.py" />
         <option value="$PROJECT_DIR$/DjangoWebApp1/mysite/polls/admin.py" />
-        <option value="$PROJECT_DIR$/DjangoWebApp1/mysite/polls/views.py" />
         <option value="$PROJECT_DIR$/DjangoWebApp1/mysite/polls/urls.py" />
         <option value="$PROJECT_DIR$/DjangoWebApp1/mysite/polls/static/polls/style.css" />
+        <option value="$PROJECT_DIR$/DjangoWebApp1/mysite/polls/intro.py" />
+        <option value="$PROJECT_DIR$/DjangoWebApp1/mysite/polls/templates/polls/detail.html" />
+        <option value="$PROJECT_DIR$/DjangoWebApp1/mysite/polls/views.py" />
       </list>
     </option>
   </component>
@@ -85,7 +160,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -93,15 +167,52 @@
               <item name="PyCourses" type="b2602c69:ProjectViewProjectNode" />
               <item name="PyCourses" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="PyCourses" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PyCourses" type="462c0819:PsiDirectoryNode" />
+              <item name="DjangoWebApp1" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PyCourses" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PyCourses" type="462c0819:PsiDirectoryNode" />
+              <item name="DjangoWebApp1" type="462c0819:PsiDirectoryNode" />
+              <item name="mysite" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PyCourses" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PyCourses" type="462c0819:PsiDirectoryNode" />
+              <item name="DjangoWebApp1" type="462c0819:PsiDirectoryNode" />
+              <item name="mysite" type="462c0819:PsiDirectoryNode" />
+              <item name="polls" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PyCourses" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PyCourses" type="462c0819:PsiDirectoryNode" />
+              <item name="DjangoWebApp1" type="462c0819:PsiDirectoryNode" />
+              <item name="mysite" type="462c0819:PsiDirectoryNode" />
+              <item name="polls" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PyCourses" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PyCourses" type="462c0819:PsiDirectoryNode" />
+              <item name="DjangoWebApp1" type="462c0819:PsiDirectoryNode" />
+              <item name="mysite" type="462c0819:PsiDirectoryNode" />
+              <item name="polls" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="polls" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="last_opened_file_path" value="C:/ProgramData/Anaconda3/Library/bin" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -255,10 +366,19 @@
       <option name="presentableId" value="Default" />
       <updated>1541608935006</updated>
     </task>
+    <task id="LOCAL-00001" summary="Testing commit from Pycharm">
+      <created>1546417479547</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1546417479547</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17386723" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -281,25 +401,29 @@
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17427123" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3518268" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.1881081" />
+      <window_info anchor="bottom" id="Python Console" order="7" weight="0.28687415" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.1881081" />
-      <window_info anchor="bottom" id="Python Console" order="7" weight="0.28687415" />
     </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Testing commit from Pycharm" />
+    <option name="LAST_COMMIT_MESSAGE" value="Testing commit from Pycharm" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -307,20 +431,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/courseLearnPython.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9945">
-          <caret line="585" lean-forward="true" selection-start-line="585" selection-end-line="585" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/courseLearnPython.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8908">
-          <caret line="524" column="21" lean-forward="true" selection-start-line="524" selection-start-column="21" selection-end-line="524" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/courseLearnPython.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="8245">
@@ -387,13 +497,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://C:/ProgramData/Anaconda3/Lib/site-packages/pydotplus/graphviz.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -539,48 +642,75 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DjangoWebApp1/mysite/polls/urls.py">
+    <entry file="file://$PROJECT_DIR$/DjangoWebApp1/mysite/polls/apps.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DjangoWebApp1/mysite/mysite/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="1" lean-forward="true" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+        <state relative-caret-position="612">
+          <caret line="36" column="34" selection-start-line="36" selection-start-column="34" selection-end-line="36" selection-end-column="34" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DjangoWebApp1/mysite/polls/views.py">
+    <entry file="file://$PROJECT_DIR$/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="32" column="31" lean-forward="true" selection-start-line="32" selection-start-column="31" selection-end-line="32" selection-end-column="31" />
+        <state relative-caret-position="17">
+          <caret line="15" selection-start-line="15" selection-end-line="15" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DjangoWebApp1/mysite/polls/admin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+          <caret line="8" selection-start-line="8" selection-end-line="8" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DjangoWebApp1/mysite/polls/intro.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="36" selection-start-line="3" selection-start-column="36" selection-end-line="3" selection-end-column="36" />
+        <state>
+          <caret column="1" selection-start-column="1" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DjangoWebApp1/mysite/polls/templates/polls/detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DjangoWebApp1/mysite/db.sqlite3">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="632">
+          <caret line="67" column="4101" lean-forward="true" selection-start-line="67" selection-start-column="4101" selection-end-line="67" selection-end-column="4101" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DjangoWebApp1/mysite/polls/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DjangoWebApp1/mysite/polls/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="53" lean-forward="true" selection-start-line="9" selection-start-column="53" selection-end-line="9" selection-end-column="53" />
+        <state relative-caret-position="340">
+          <caret line="23" column="31" selection-start-line="23" selection-start-column="31" selection-end-line="23" selection-end-column="31" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DjangoWebApp1/mysite/polls/apps.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DjangoWebApp1/mysite/mysite/settings.py">
+    <entry file="file://$PROJECT_DIR$/DjangoWebApp1/mysite/polls/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="36" column="34" selection-start-line="36" selection-start-column="34" selection-end-line="36" selection-end-column="34" />
+        <state relative-caret-position="548">
+          <caret line="34" column="8" lean-forward="true" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
