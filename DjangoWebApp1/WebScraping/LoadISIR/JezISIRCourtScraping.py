@@ -70,7 +70,7 @@ class IsirCourtClass(object):
             "KSHK": "Krajský soud v Hradci Králové",
             "KSPA": "Krajský soud v Hradci Králové - pobočka v Pardubicích",
             "KSPL": "Krajský soud v Plzni",
-            "MSPH": "Městský soud v Praze",
+            "MSPH": "Městský soud v Praze"
 
         # more to come
         }
