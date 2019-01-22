@@ -7,23 +7,44 @@ from tqdm import tqdm # progress bar in console
 dtime_start = datetime.datetime.now()
 
 # all folders in which subfolders need to be modified
+
+# for testing purposes i moved these folder to my personal testing folder
+# use this command in command line xcopy /t /e "C:\Your Folder" "C:\New Folder"
+# it does not move files, only folders and subfolders
+
+
+# PROD FOLDERS
+# folders_dict = {
+#     "EprPodaneZaloby": "W:\\Vymahani\\LATE\\EPR\\PODANÉ ŽALOBY",
+#     "EprNachystane": "W:\\Vymahani\\LATE\\EPR\\NACHYSTANÉ",
+#     "EprDebety": "W:\\Vymahani\\LATE\\EPR\\DEBETY",
+#     "ExePodane": "W:\\Vymahani\\LATE\\EXEKUCE\\PODANÉ",
+#     "ExePripravene": "W:\\Vymahani\\LATE\\EXEKUCE\\PŘIPRAVENÉ",
+#     "InsPripravene": "W:\\Vymahani\\LATE\\Insolvence\\PŘIPRAVENÉ",
+#     "InsPrihlasene": "W:\\Vymahani\\LATE\\Insolvence\\PŘIHLÁŠENÉ",
+#     "DED": "W:\\Vymahani\\LATE\\DĚDICKÉ",
+#     "DEDICOVE": "W:\\Vymahani\\LATE\\DĚDICOVÉ",
+# }
+
+# TEST FOLDERS
+
 folders_dict = {
-    # "EprPodaneZaloby": "W:\\Vymahani\\LATE\\EPR\\PODANÉ ŽALOBY",
-    # "EprNachystane": "W:\\Vymahani\\LATE\\EPR\\NACHYSTANÉ",
-    # "EprDebety": "W:\\Vymahani\\LATE\\EPR\\DEBETY",
-    # "ExePodane": "W:\\Vymahani\\LATE\\EXEKUCE\\PODANÉ",
-    # "ExePripravene": "W:\\Vymahani\\LATE\\EXEKUCE\\PŘIPRAVENÉ",
-    # "InsPripravene": "W:\\Vymahani\\LATE\\Insolvence\\PŘIPRAVENÉ",
-    # "InsPrihlasene": "W:\\Vymahani\\LATE\\Insolvence\\PŘIHLÁŠENÉ",
-    # "DED": "W:\\Vymahani\\LATE\\DĚDICKÉ",
-    # "DEDICOVE": "W:\\Vymahani\\LATE\\DĚDICOVÉ",
-     "TEST_EPR": "D:\\Users\\mmacicek1695ab\\Desktop\\Work\\Tasks\\GITProjects\\test\\EPR_PODANE",
-     "TEST_EXE": "D:\\Users\\mmacicek1695ab\\Desktop\\Work\\Tasks\\GITProjects\\test\\EXE_PRIPRAVENE"
+    "EprPodaneZaloby": "D:\\Users\\mmacicek1695ab\\Desktop\\Work\\Tasks\\GITProjects\\test\\EPR_PODANÉ ŽALOBY",
+    "EprNachystane": "D:\\Users\\mmacicek1695ab\\Desktop\\Work\\Tasks\\GITProjects\\test\\EPR_NACHYSTANÉ",
+    "EprDebety": "D:\\Users\\mmacicek1695ab\\Desktop\\Work\\Tasks\\GITProjects\\test\\EPR_DEBETY",
+    "ExePodane": "D:\\Users\\mmacicek1695ab\\Desktop\\Work\\Tasks\\GITProjects\\test\\EXE_PODANÉ",
+    "ExePripravene": "D:\\Users\\mmacicek1695ab\\Desktop\\Work\\Tasks\\GITProjects\\test\\EXE_PŘIPRAVENÉ",
+    "InsPripravene": "D:\\Users\\mmacicek1695ab\\Desktop\\Work\\Tasks\\GITProjects\\test\\INS_PŘIPRAVENÉ",
+    "InsPrihlasene": "D:\\Users\\mmacicek1695ab\\Desktop\\Work\\Tasks\\GITProjects\\test\\INS_PŘIHLÁŠENÉ",
+    "DED": "D:\\Users\\mmacicek1695ab\\Desktop\\Work\\Tasks\\GITProjects\\test\\DĚDICKÉ",
+    "DEDICOVE": "D:\\Users\\mmacicek1695ab\\Desktop\\Work\\Tasks\\GITProjects\\test\\DĚDICOVÉ",
+    "TEST_EPR": "D:\\Users\\mmacicek1695ab\\Desktop\\Work\\Tasks\\GITProjects\\test\\TEST_EPR_PODANE",
+    "TEST_EXE": "D:\\Users\\mmacicek1695ab\\Desktop\\Work\\Tasks\\GITProjects\\test\\TEST_EXE_PRIPRAVENE"
 }
 
 # generate this dictionary from a database in a following way CUID: ID_COLL_CASE
 # select p.NAME||' '||p.CUID AS FOLDER_NAME, cc.id_coll_case as COLL_CASE
-# from coll_case cc
+# from collection_case cc
 # join person p on cc.id_person = p.id_person
 
 path_to_csv = "D:\\Users\\mmacicek1695ab\\Desktop\\Work\\Tasks\\GITProjects\\test\\cuidCCTranslator.csv"
@@ -66,7 +87,7 @@ for folder in folders_dict:
             if filename.find("CC") == -1:  # check if the CUID in folder name equals client CUID and does not already contain label
 
                 # DO NOT RUN ON PRODUCTION ONLY IF YOU REALLY WANT TO RUN IT - BEGIN
-                # os.rename(filename, filename + " CC" + str(id_coll_case))
+                os.rename(filename, filename + " CC" + str(id_coll_case))
                 # DO NOT RUN ON PRODUCTION ONLY IF YOU REALLY WANT TO RUN IT - END
 
                 log_file.write(str(datetime.datetime.now()) + ";Found and renamed;" + folder + ";" + filename + " CC" + str(id_coll_case))
@@ -76,8 +97,12 @@ for folder in folders_dict:
                 log_file.write(str(datetime.datetime.now()) + ";CC already added;" + folder + ";" + filename + " CC" + str(id_coll_case))
                 log_file.write('\n')  # new line
         else:
-            log_file.write(str(datetime.datetime.now()) + ";Clients folder not found in directory;" + folder + ";" + filename + " CC" + str(id_coll_case))
-            log_file.write('\n')  # new line
+            try:
+                log_file.write(str(datetime.datetime.now()) + ";Clients folder not found in directory;" + folder + ";" + filename + " CC" + str(id_coll_case))
+            except:
+                log_file.write(str(datetime.datetime.now()) + ";Clients folder not found Exception occurred;" + folder + ";" + " CC" + str(id_coll_case))
+            finally:
+                log_file.write('\n')  # new line
 
 
 ##############################################################################################################################################################
@@ -142,9 +167,9 @@ if False:
                 if filename.find("CC") > 0:  # check if there is already a labed
 
                     # DO NOT RUN ON PRODUCTION ONLY IF YOU REALLY WANT TO RUN IT - BEGIN
-                    # os.rename(
-                    #     path_to_folder + "\\" + filename,
-                    #     path_to_folder + "\\" + filename[:filename.rfind("CC") - 1])
+                    os.rename(
+                        path_to_folder + "\\" + filename,
+                        path_to_folder + "\\" + filename[:filename.rfind("CC") - 1])
                     # DO NOT RUN ON PRODUCTION ONLY IF YOU REALLY WANT TO RUN IT - END
 
                     log_file.write(str(datetime.datetime.now()) + ";Found and rollbacked;" + folder + ";" + path_to_folder + "\\" + filename)

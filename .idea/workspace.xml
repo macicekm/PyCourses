@@ -89,8 +89,8 @@
       <file leaf-file-name="RenameClientsFolders_CollCase.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DjangoWebApp1/WebScraping/LoadISIR/RenameClientsFolders_CollCase.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="122" lean-forward="true" selection-start-line="122" selection-end-line="122" />
+            <state relative-caret-position="459">
+              <caret line="42" column="1" lean-forward="true" selection-start-line="42" selection-start-column="1" selection-end-line="42" selection-end-column="1" />
               <folding>
                 <element signature="e#1#10#0" expanded="true" />
               </folding>
@@ -118,10 +118,13 @@
       <find>KSOL</find>
       <find>print</find>
       <find>\</find>
+      <find>&quot;, # (‎12. ‎prosince ‎2018, ‏‎12:00)&quot;,</find>
+      <find>(‎12. ‎prosince ‎2018, ‏‎12:00)</find>
     </findStrings>
     <replaceStrings>
       <replace>courtCode</replace>
       <replace>\\</replace>
+      <replace>(‎12. ‎prosince ‎2018, ‏‎12:00)&quot;,</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -169,8 +172,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+    <option name="x" value="370" />
+    <option name="y" value="50" />
     <option name="width" value="960" />
     <option name="height" value="1040" />
   </component>
@@ -180,7 +183,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -210,6 +212,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -426,7 +429,14 @@
       <option name="project" value="LOCAL" />
       <updated>1547656965163</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Add missing folder log">
+      <created>1547729247072</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1547729247072</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -438,11 +448,11 @@
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50052685" side_tool="true" weight="0.29162133" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" sideWeight="0.49947312" weight="0.42002177" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.34711644" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.27094668" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3960827" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.2023939" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -454,21 +464,21 @@
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20864068" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3518268" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.1881081" />
-      <window_info active="true" anchor="bottom" id="Python Console" order="7" visible="true" weight="0.29162133" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="10" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.1881081" />
+      <window_info active="true" anchor="bottom" id="Python Console" order="7" visible="true" weight="0.29162133" />
     </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -483,22 +493,15 @@
     <MESSAGE value="Create code to loop and rename clients folders" />
     <MESSAGE value="Add import and add rollback procedure" />
     <MESSAGE value="Change a way to find folder, add logging." />
-    <option name="LAST_COMMIT_MESSAGE" value="Change a way to find folder, add logging." />
+    <MESSAGE value="Add missing folder log" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add missing folder log" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="45" />
+      <option name="time" value="53" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/InteractiveDecisionTree.ipynb" />
-    <entry file="file://$PROJECT_DIR$/game.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/draw.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -759,17 +762,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://C:/ProgramData/Anaconda3/Lib/encodings/cp1250.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="41" lean-forward="true" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://C:/ProgramData/Anaconda3/Lib/codecs.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="308" selection-start-line="308" selection-end-line="308" />
+        <state relative-caret-position="237">
+          <caret line="323" selection-start-line="323" selection-end-line="323" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/ProgramData/Anaconda3/Lib/genericpath.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DjangoWebApp1/WebScraping/LoadISIR/RenameClientsFolders_CollCase.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="122" lean-forward="true" selection-start-line="122" selection-end-line="122" />
+        <state relative-caret-position="459">
+          <caret line="42" column="1" lean-forward="true" selection-start-line="42" selection-start-column="1" selection-end-line="42" selection-end-column="1" />
           <folding>
             <element signature="e#1#10#0" expanded="true" />
           </folding>
