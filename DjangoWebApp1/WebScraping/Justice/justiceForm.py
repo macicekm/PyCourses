@@ -11,6 +11,10 @@
 # install slate3k using pip -- not in anaconda distribution
 # As of now, this script does not work when being connected to NASE_SIT, so be connected to PRIPOJENI_DO_SVETA
 
+
+# import cx_Oracle
+
+
 import slate3k as slate
 # import PyPDF2
 
@@ -23,6 +27,16 @@ import time
 
 
 
+# To Do Database connection - does not work yet
+
+# password = input("Zadej heslo do DB")
+# con = cx_Oracle.connect('mmacicek1695ab/' + password + '@HDWMN.BANKA.HCI/orcl')
+# print con.version
+# con.close()
+
+
+# TO DO
+# For logging use python logging package
 
 
 # Set global parameters
@@ -62,6 +76,7 @@ dict_justice = {
 # Open browser
 browser = webdriver.Chrome(path_to_driver)
 
+# Insert web Page
 browser.get(page_url)
 
 # Get elements
@@ -74,9 +89,11 @@ elem_button_clear = browser.find_elements_by_xpath("//*[contains(text(), 'Vyčis
 # elem.send_keys(Keys.Enter)
 
 # Insert identeficators into inputboxes
+elem_overovaciKod.clear()  # needs to be cleared first
 elem_overovaciKod.send_keys(dict_justice["overovaciKod"])
+elem_spisovka.clear()  # needs to be cleared first
 elem_spisovka.send_keys(dict_justice["spznBc"])
-elem_rocnik.clear() # needs to be cleared first
+elem_rocnik.clear()  # needs to be cleared first
 elem_rocnik.send_keys(dict_justice["spznRocnik"])
 
 # Click find button to find related PDFs links
@@ -84,7 +101,7 @@ elem_button_find.click()
 
 #elem_just = browser.find_element_by_class_name('just')
 
-# Wait for 5 seconds
+# Wait for 1 second - give the server time to find the documents
 time.sleep(1)
 
 # Download pdf page if there is any
