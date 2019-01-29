@@ -3,39 +3,68 @@
 # https://www.youtube.com/watch?v=GJjMjB3rkJM&feature=youtu.be  # tutorial video
 
 
-
+###
 # from link on https://www.seleniumhq.org/ you need to download a webdriver
 # for chrome go directly here https://sites.google.com/a/chromium.org/chromedriver/ and install it somewhere on your PC
 
 # install selenium and pywget using Anaconda
+# install slate3k using pip -- not in anaconda distribution
+# As of now, this script does not work when being connected to NASE_SIT, so be connected to PRIPOJENI_DO_SVETA
+
+import slate3k as slate
+# import PyPDF2
 
 from selenium import webdriver
 import wget
 # from selenium.webdriver.common.keys import Keys # useful if you want to press keyboard buttons like enter
 
+import datetime
+import time
 
+
+
+
+
+# Set global parameters
+dtime_start = datetime.datetime.now()
 url = "https://infodokument.justice.cz/"
-
-
-dict_justice = {
-    "overovaciKod" : "3GA7L-D89EO-RYN6D-JG1ST",
-    "spznBc" : "212882",
-    "spznRocnik" : "2018"
-}
-
-# dict_justice = {
-#     "overovaciKod" : "3YSDI-SG614-UW8B1-MQ3IP",
-#     "spznBc" : "296674",
-#     "spznRocnik" : "2018"
-# }
-
 path_to_driver = 'D:\\Users\\mmacicek1695ab\\PycharmProjects\\PyCourses\\DjangoWebApp1\\WebScraping\\Justice\\chromedriver'
+path_to_save_file = 'D:\\Users\\mmacicek1695ab\\Desktop\\Work\\Tasks\\GITProjects\\test\\FilesFromJustice'
+path_to_neepr_file = 'D:\\Users\\mmacicek1695ab\\Desktop\\Work\\Tasks\\GITProjects\\test\\FilesFromJustice' + '\\NePM EPR.pdf'
 page_url = "https://infodokument.justice.cz"
 
+
+# PyPDF2 Does not work - imports empty string
+    # pdfFileObj = open(path_to_neepr_file, 'rb')
+    # pdfReader = PyPDF2.PdfFileReader(pdfFileObj)
+    # pdfReader.numPages
+    # pageObj = pdfReader.getPage(1)
+    # text = pageObj.extractText()
+    # print(text)
+
+
+# Open PDF and get identificators
+with open(path_to_neepr_file,'rb') as f:
+    text = str(slate.PDF(f))
+print(text)
+
+spis_rocnik = text[text.find('EPR\\xa0')+7:text.find('\\xa0-\\xa07')].split('/')
+
+spec_ident = text[text.find('Specifický identifikátor: ')+26:text.find('Specifický identifikátor: ')+26+23]
+
+dict_justice = {
+    "overovaciKod": spec_ident,
+    "spznBc": spis_rocnik[0],
+    "spznRocnik": spis_rocnik[1]
+}
+
+
+# Open browser
 browser = webdriver.Chrome(path_to_driver)
 
 browser.get(page_url)
 
+# Get elements
 elem_overovaciKod = browser.find_element_by_id('overovaciKod')
 elem_spisovka = browser.find_element_by_id('spznBc')
 elem_rocnik = browser.find_element_by_id('spznRocnik')
@@ -44,35 +73,34 @@ elem_button_clear = browser.find_elements_by_xpath("//*[contains(text(), 'Vyčis
 
 # elem.send_keys(Keys.Enter)
 
+# Insert identeficators into inputboxes
 elem_overovaciKod.send_keys(dict_justice["overovaciKod"])
 elem_spisovka.send_keys(dict_justice["spznBc"])
 elem_rocnik.clear() # needs to be cleared first
 elem_rocnik.send_keys(dict_justice["spznRocnik"])
 
+# Click find button to find related PDFs links
 elem_button_find.click()
 
-elem_just = browser.find_element_by_class_name('just')
+#elem_just = browser.find_element_by_class_name('just')
 
-elem_rozhodnuti = browser.find_elements_by_xpath("//*[contains(text(), 'Rozhodnutí.pdf')]")[0]
-elem_pm_rozhodnuti = browser.find_elements_by_xpath("//*[contains(text(), 'Pravomocné rozhodnutí.pdf')]")[0]
+# Wait for 5 seconds
+time.sleep(1)
 
+# Download pdf page if there is any
+try:
+    elem_pm_rozhodnuti = browser.find_elements_by_xpath("//*[contains(text(), 'Pravomocné rozhodnutí.pdf')]")[0]
+except:
+    print('PM not found')
+else:
+    # download pm_rozhodnuti
+    print('PM found and will be downloaded')
+    wget.download(elem_pm_rozhodnuti.get_attribute('href'), path_to_save_file + '\\pm_rozhodnuti.pdf')
 
+browser.close()
 
-print(elem_just.text)
-print(elem_rozhodnuti.get_attribute('href'))
-print(elem_pm_rozhodnuti.get_attribute('href'))
-
-
-
-
-
-print('Beginning file download with wget module')
-# download rozhodnuti
-wget.download(elem_rozhodnuti.get_attribute('href'), 'D:\\Users\\mmacicek1695ab\\Desktop\\Work\\Tasks\\GITProjects\\test\\FilesFromJustice\\rozhodnuti.pdf')
-# download pm_rozhodnuti
-wget.download(elem_pm_rozhodnuti.get_attribute('href'), 'D:\\Users\\mmacicek1695ab\\Desktop\\Work\\Tasks\\GITProjects\\test\\FilesFromJustice\\pm_rozhodnuti.pdf')
-
-
+##############################################################################################################################################################
+print("Finished, time elapsed = " + str(round((datetime.datetime.now() -dtime_start).total_seconds()/60, 2)) + " minutes")
 
 
 #############################
