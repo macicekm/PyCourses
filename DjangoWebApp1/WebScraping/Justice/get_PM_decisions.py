@@ -16,8 +16,12 @@ import time
 import csv
 import os
 from tqdm import tqdm  # progress bar in console
+import random
 
 import logging
+
+import requests
+from bs4 import BeautifulSoup
 
 # Set global parameters
 logging.basicConfig(filename='get_PM_decisions.log', filemode='w', format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
@@ -38,8 +42,10 @@ with open(path_to_csv) as csvfile:
 
 # Set class
 class InfoDocumentClass(object):
-# This class serves to connect to infodokument.justice web page, get the info whether we have PM decision or not and download pdf document
-# Web site does not accept POST request, so we need to use selenium to operate it
+    # This class serves to connect to infodokument.justice web page, get the info whether we have PM decision or not and download pdf document
+    # Web site does not accept POST request, so we need to use selenium to operate it
+
+    # To Do: for some reason i am unable to scrape identifiers from pdf... -> it returns empty text
 
     def __init__(self, id_collection_case):
 
@@ -101,7 +107,7 @@ class InfoDocumentClass(object):
 
         # Open browser if not already opened
         browser = webdriver.Chrome(path_to_driver)
-        browser.minimize_window()
+        # browser.minimize_window()
 
         # Insert web Page
         browser.get(self.page_url)
@@ -150,12 +156,91 @@ class NullPDFTextError(Exception):
     pass
 
 
-for cc in tqdm(cc_dict):
+# Set class
+class InfoSoudClass(object):
+    # This class serves to connect to infodokument.justice web page, get the info whether we have PM decision or not and download pdf document
+    # Web site does not accept POST request, so we need to use selenium to operate it
 
-    print('Current collection case: ' + cc + ' folder: ' + cc_dict[cc])
-    document = InfoDocumentClass(cc)
-    document.get_documents()
+    # To Do: for some reason i am unable to scrape identifiers from pdf... -> it returns empty text
+
+    def __init__(self, id_collection_case):
+
+        self.id_collection_case = id_collection_case
+
+        self.folder_path = self._get_clients_folder_path()
+        self.process_ids = self._get_process_ids()
+        self.page_url = "http://infosoud.justice.cz/InfoSoud/public/search.do;" \
+                        "jsessionid=" + self.process_ids["sessionId"] + \
+                        ".infosoud01?type=spzn&typSoudu=os&" \
+                        "krajOrg=" + self.process_ids["krajOrg"] + \
+                        "&org=" + self.process_ids["org"] + \
+                        "&cisloSenatu=" + self.process_ids["cisloSenatu"] + \
+                        "&druhVec=" + self.process_ids["druhVec"] + \
+                        "&bcVec=" + self.process_ids["bcVec"] + \
+                        "&rocnik=" + self.process_ids["rocnik"] + \
+                        "&spamQuestion=23&agendaNc=CIVIL"
+
+    def _get_clients_folder_path(self):
+
+        folder_path = 'D:\\Users\\mmacicek1695ab\\Desktop\\Work\\Tasks\\GITProjects\\test\\FilesFromJustice\\' + cc_dict[str(self.id_collection_case)]
+        if os.path.exists(folder_path):
+            return folder_path
+        else:
+            logging.error('%s raised an error: Folder path does not exist ', folder_path)
+
+    def _get_process_ids(self):
+        # Get identificators - store it in a dictionary
+
+        return {
+            "sessionId": str(random.randint(1,100000)),  # clicking on search button generates some sessionID - since I don´t have this I generate some random number
+            "krajOrg": "KSSTCAB",
+            "org": "OSSTCPY",
+            "cisloSenatu": "21",
+            "druhVec": "C",
+            "bcVec": "10",
+            "rocnik": "2018"
+        }
+
+    def is_pm_info(self):
+        # Get the information from the website, whether we already have PM decision or not
+        page = requests.get(self.page_url, timeout=10)
+
+        # 200 is code for ok request result, otherwise raise exception
+        assert(page.status_code == 200), "JEZ-1789116: Request failed with status_code = " + str(page.status_code)
+
+        # Parse the html
+        soup = BeautifulSoup(page.content, 'html.parser')
+        id_pm = "udalost15" + self.process_ids["org"] + self.process_ids["druhVec"] + self.process_ids["rocnik"] + self.process_ids["cisloSenatu"] + self.process_ids["bcVec"]
+        results = soup.find("a", {"id": id_pm})
+        # try:
+        #     pass
+        # except:
+        #     print("JEZ-78616: Error when parsing " + class_name + "INS: " + str(self.codeInsCase))
+        if not results is None:
+            return True
+        else:
+            return False
+
+        # Wait for 5 seconds - make it look more like a human behind his laptop
+        time.sleep(5)
+
+########################################################################################################################
+# This is the real executable code
+########################################################################################################################
+
+# Infosoud
+if False:
+    info_soud = InfoSoudClass("55")
+    print(info_soud.is_pm_info())
+
+# Infodokument Justice
+if True:
+    for cc in tqdm(cc_dict):
+
+        print('Current collection case: ' + cc + ' folder: ' + cc_dict[cc])
+        info_document = InfoDocumentClass(cc)
+        info_document.get_documents()
 
 
-##############################################################################################################################################################
-print("Finished, time elapsed = " + str(round((datetime.datetime.now() -dtime_start).total_seconds()/60, 2)) + " minutes")
+########################################################################################################################
+print("Finished, time elapsed = " + str(round((datetime.datetime.now() - dtime_start).total_seconds()/60, 2)) + " minutes")
