@@ -2,7 +2,7 @@
 import os
 import csv
 import datetime
-from tqdm import tqdm # progress bar in console
+from tqdm import tqdm  # progress bar in console
 
 dtime_start = datetime.datetime.now()
 

@@ -14,15 +14,18 @@ import wget
 import datetime
 import time
 import csv
+import os
+from tqdm import tqdm  # progress bar in console
 
+import logging
 
 # Set global parameters
+logging.basicConfig(filename='get_PM_decisions.log', filemode='w', format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 dtime_start = datetime.datetime.now()
 path_to_driver = 'D:\\Users\\mmacicek1695ab\\PycharmProjects\\PyCourses\\DjangoWebApp1\\WebScraping\\Justice\\chromedriver'
 
 
 # Get clients
-
 path_to_csv = "D:\\Users\\mmacicek1695ab\\Desktop\\Work\\Tasks\\GITProjects\\test\\FilesFromJustice\\collection_cases.csv"
 
 with open(path_to_csv) as csvfile:
@@ -46,23 +49,51 @@ class InfoDocumentClass(object):
         self.process_ids = self._get_process_ids()
 
     def _get_clients_folder_path(self):
-         return 'D:\\Users\\mmacicek1695ab\\Desktop\\Work\\Tasks\\GITProjects\\test\\FilesFromJustice\\' + cc_dict[str(self.id_collection_case)]
+
+        folder_path = 'D:\\Users\\mmacicek1695ab\\Desktop\\Work\\Tasks\\GITProjects\\test\\FilesFromJustice\\' + cc_dict[str(self.id_collection_case)]
+        if os.path.exists(folder_path):
+            return folder_path
+        else:
+            logging.error('%s raised an error: Folder path does not exist ', folder_path)
 
     def _get_process_ids(self):
         # Open PDF and get identificators - store it in a dictionary
-        with open(self.folder_path + '\\NePM EPR.pdf', 'rb') as f:
-            text = str(slate.PDF(f))
+        try:
+            with open(self.folder_path + '\\NePM EPR.pdf', 'rb') as f:
+                text = str(slate.PDF(f))
 
-        spis_rocnik = text[text.find('EPR\\xa0') + 7:text.find('\\xa0-\\xa07')].split('/')
+            if text == '[]':
+                raise NullPDFTextError
 
-        spec_ident = text[
-                     text.find('Specifický identifikátor: ') + 26:text.find('Specifický identifikátor: ') + 26 + 23]
+            spis_rocnik = text[text.find('EPR\\xa0') + 7:text.find('\\xa0-')].split('/')
 
-        return {
-            "overovaciKod": spec_ident,
-            "spznBc": spis_rocnik[0],
-            "spznRocnik": spis_rocnik[1]
-        }
+            spec_ident = text[
+                         text.find('Specifický identifikátor: ') + 26:text.find('Specifický identifikátor: ') + 26 + 23]
+
+        except NullPDFTextError:
+            logging.error('%s raised an error: Unable to read identifiers from pdf ', self.folder_path + '\\NePM EPR.pdf')
+
+            return {
+                "overovaciKod": "",
+                "spznBc": "0",
+                "spznRocnik": "1900"
+            }
+
+        except:
+            logging.error('%s raised an error: General error when reading identifiers from PDF ', self.id_collection_case)
+
+            return {
+                "overovaciKod": "",
+                "spznBc": "0",
+                "spznRocnik": "1900"
+            }
+
+        else:
+            return {
+                "overovaciKod": spec_ident,
+                "spznBc": spis_rocnik[0],
+                "spznRocnik": spis_rocnik[1]
+            }
 
     def get_documents(self):
         # This method downloads document with PM pdf
@@ -70,6 +101,7 @@ class InfoDocumentClass(object):
 
         # Open browser if not already opened
         browser = webdriver.Chrome(path_to_driver)
+        browser.minimize_window()
 
         # Insert web Page
         browser.get(self.page_url)
@@ -84,7 +116,7 @@ class InfoDocumentClass(object):
 
         # elem.send_keys(Keys.Enter)
 
-        # Insert identeficators into inputboxes
+        # Insert identificators into inputboxes
         elem_overovaciKod.clear()  # needs to be cleared first
         elem_overovaciKod.send_keys(self.process_ids["overovaciKod"])
         elem_spisovka.clear()  # needs to be cleared first
@@ -104,24 +136,25 @@ class InfoDocumentClass(object):
         try:
             elem_pm_rozhodnuti = browser.find_elements_by_xpath("//*[contains(text(), 'Pravomocné rozhodnutí.pdf')]")[0]
         except:
-            print('PM not found')
+            print('PM not found CC: ' + self.id_collection_case)
+            logging.info('%s info: PM not found for CC:', self.id_collection_case)
         else:
             # download pm_rozhodnuti
             wget.download(elem_pm_rozhodnuti.get_attribute('href'), self.folder_path + '\\pm_rozhodnuti.pdf')
-            print('PM found and downloaded')
+            print('PM found and downloaded CC: ' + self.id_collection_case)
+            logging.info('%s info: PM found and downloaded for CC:', self.id_collection_case)
 
         browser.close()
 
+class NullPDFTextError(Exception):
+    pass
 
 
+for cc in tqdm(cc_dict):
 
-document = InfoDocumentClass(55)
-
-document.folder_path
-
-document.get_documents()
-
-
+    print('Current collection case: ' + cc + ' folder: ' + cc_dict[cc])
+    document = InfoDocumentClass(cc)
+    document.get_documents()
 
 
 ##############################################################################################################################################################

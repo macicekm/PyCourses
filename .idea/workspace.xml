@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c70e15d6-d39b-41bb-8489-7c82c4ff30fb" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/DjangoWebApp1/WebScraping/Justice/get_PM_decisions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DjangoWebApp1/WebScraping/Justice/justiceForm.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjangoWebApp1/WebScraping/Justice/justiceForm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoWebApp1/WebScraping/Justice/get_PM_decisions.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjangoWebApp1/WebScraping/Justice/get_PM_decisions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoWebApp1/WebScraping/LoadISIR/RenameClientsFolders_CollCase.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjangoWebApp1/WebScraping/LoadISIR/RenameClientsFolders_CollCase.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,8 +18,8 @@
       <file leaf-file-name="WebScrapingDemo1.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DjangoWebApp1/WebScraping/WebScrapingDemo1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="37" column="10" lean-forward="true" selection-start-line="37" selection-start-column="10" selection-end-line="37" selection-end-column="10" />
+            <state relative-caret-position="595">
+              <caret line="37" column="10" selection-start-line="37" selection-start-column="10" selection-end-line="37" selection-end-column="10" />
               <folding>
                 <element signature="e#1422#1504#0" expanded="true" />
               </folding>
@@ -31,7 +31,7 @@
         <entry file="file://$PROJECT_DIR$/DjangoWebApp1/WebScraping/LoadISIR/JezISIRCourtScraping.py">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="61" lean-forward="true" selection-start-column="61" selection-end-column="61" />
+              <caret column="61" selection-start-column="61" selection-end-column="61" />
               <folding>
                 <element signature="e#814#829#0" expanded="true" />
               </folding>
@@ -42,23 +42,8 @@
       <file leaf-file-name="justiceForm.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DjangoWebApp1/WebScraping/Justice/justiceForm.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-102">
-              <caret line="87" lean-forward="true" selection-start-line="87" selection-end-line="87" />
-              <folding>
-                <element signature="e#558#581#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="get_PM_decisions.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/DjangoWebApp1/WebScraping/Justice/get_PM_decisions.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
-              <folding>
-                <element signature="e#88#111#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="629">
+              <caret line="87" selection-start-line="87" selection-end-line="87" />
             </state>
           </provider>
         </entry>
@@ -66,10 +51,19 @@
       <file leaf-file-name="RenameClientsFolders_CollCase.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DjangoWebApp1/WebScraping/LoadISIR/RenameClientsFolders_CollCase.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="56" selection-end-column="59" />
+            <state relative-caret-position="-2278">
+              <caret line="4" selection-start-line="4" selection-end-line="4" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="get_PM_decisions.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/DjangoWebApp1/WebScraping/Justice/get_PM_decisions.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="371">
+              <caret line="102" column="50" lean-forward="true" selection-start-line="102" selection-start-column="50" selection-end-line="102" selection-end-column="50" />
               <folding>
-                <element signature="e#1#10#0" expanded="true" />
+                <element signature="e#88#111#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -144,21 +138,21 @@
         <option value="$PROJECT_DIR$/DjangoWebApp1/WebScraping/JezISIRCourtScraping.py" />
         <option value="$PROJECT_DIR$/DjangoWebApp1/WebScraping/WebScrapingDemo1.py" />
         <option value="$PROJECT_DIR$/DjangoWebApp1/WebScraping/LoadISIR/JezISIRCourtScraping.py" />
-        <option value="$PROJECT_DIR$/DjangoWebApp1/WebScraping/LoadISIR/RenameClientsFolders_CollCase.py" />
         <option value="$PROJECT_DIR$/xlwings_app_test.py" />
         <option value="$PROJECT_DIR$/xlWings_app_test.py" />
-        <option value="$PROJECT_DIR$/xlWings/xlWings_app_test.py" />
         <option value="$USER_HOME$/Desktop/Work/Tasks/Python/PSW_0_5_1_KTK/Workflow_0_5_1.ipynb" />
         <option value="$PROJECT_DIR$/DjangoWebApp1/WebScraping/Justice/justiceForm.py" />
+        <option value="$PROJECT_DIR$/xlWings/xlWings_app_test.py" />
+        <option value="$PROJECT_DIR$/DjangoWebApp1/WebScraping/LoadISIR/RenameClientsFolders_CollCase.py" />
         <option value="$PROJECT_DIR$/DjangoWebApp1/WebScraping/Justice/get_PM_decisions.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="370" />
-    <option name="y" value="50" />
-    <option name="width" value="960" />
-    <option name="height" value="1040" />
+    <option name="x" value="299" />
+    <option name="y" value="43" />
+    <option name="width" value="800" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -166,6 +160,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -207,7 +202,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -249,7 +243,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.justiceForm">
+  <component name="RunManager" selected="Python.get_PM_decisions">
     <configuration name="RenameClientsFolders_CollCase" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="PyCourses" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -286,24 +280,6 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="TkinterCurrencyConverter" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="PyCourses" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TkinterCurrencyConverter.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
     <configuration name="WebScrapingDemo1" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="PyCourses" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -317,6 +293,24 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DjangoWebApp1/WebScraping/WebScrapingDemo1.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="get_PM_decisions" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="PyCourses" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DjangoWebApp1/WebScraping/Justice" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DjangoWebApp1/WebScraping/Justice/get_PM_decisions.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -342,18 +336,18 @@
     </configuration>
     <list>
       <item itemvalue="Python.TkinterCalculator" />
-      <item itemvalue="Python.TkinterCurrencyConverter" />
       <item itemvalue="Python.WebScrapingDemo1" />
       <item itemvalue="Python.RenameClientsFolders_CollCase" />
       <item itemvalue="Python.justiceForm" />
+      <item itemvalue="Python.get_PM_decisions" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.get_PM_decisions" />
         <item itemvalue="Python.justiceForm" />
         <item itemvalue="Python.RenameClientsFolders_CollCase" />
         <item itemvalue="Python.WebScrapingDemo1" />
         <item itemvalue="Python.TkinterCalculator" />
-        <item itemvalue="Python.TkinterCurrencyConverter" />
       </list>
     </recent_temporary>
   </component>
@@ -452,23 +446,30 @@
       <option name="project" value="LOCAL" />
       <updated>1548755821605</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Create class">
+      <created>1548778420222</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1548778420222</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14752372" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14752372" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50052685" side_tool="true" weight="0.29162133" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.3297062" />
-      <window_info anchor="bottom" id="Python Console" order="7" sideWeight="0.49947312" visible="true" weight="0.21762785" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.15560392" />
+      <window_info anchor="bottom" id="Python Console" order="7" sideWeight="0.49947312" weight="0.21762785" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.15560392" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.2023939" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.29053319" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -480,21 +481,21 @@
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20864068" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3518268" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.1881081" />
-      <window_info active="true" anchor="bottom" id="Python Console" order="7" visible="true" weight="0.29162133" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="10" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.1881081" />
+      <window_info active="true" anchor="bottom" id="Python Console" order="7" visible="true" weight="0.29162133" />
     </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -513,28 +514,31 @@
     <MESSAGE value="Add testing folders" />
     <MESSAGE value="Add script for automated browsing through website using selenium" />
     <MESSAGE value="Add pdf scraping to get input data for web page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add pdf scraping to get input data for web page" />
+    <MESSAGE value="Create class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="55" />
+      <default-breakpoints>
+        <breakpoint type="python-exception">
+          <properties notifyOnTerminate="true" exception="BaseException">
+            <option name="notifyOnTerminate" value="true" />
+          </properties>
+        </breakpoint>
+      </default-breakpoints>
+      <option name="time" value="63" />
     </breakpoint-manager>
   </component>
+  <component name="debuggerHistoryManager">
+    <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>print(text)</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+    </expressions>
+  </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/test.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="75" lean-forward="true" selection-start-line="9" selection-start-column="75" selection-end-line="9" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/JsonImportExport.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/jsonData.csv">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -700,9 +704,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="25" column="12" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#54#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -710,9 +711,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -750,30 +748,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/ProgramData/Anaconda3/Lib/codecs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="323" selection-start-line="323" selection-end-line="323" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/ProgramData/Anaconda3/Lib/genericpath.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/xlWings_app_test.py" />
     <entry file="file://$USER_HOME$/AppData/Local/Temp/Temp1_database.zip/database.py" />
     <entry file="file://$USER_HOME$/AppData/Local/Temp/Temp1_simulation.zip/simulation.py" />
-    <entry file="file://$PROJECT_DIR$/xlWings/xlWings_app_test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="32" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Desktop/Work/Tasks/Python/PSW_0_5_1_KTK/Workflow_0_5_1.ipynb">
       <provider selected="true" editor-type-id="ipnb-editor">
         <state>
@@ -784,7 +761,7 @@
     <entry file="file://$PROJECT_DIR$/DjangoWebApp1/WebScraping/LoadISIR/JezISIRCourtScraping.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="61" lean-forward="true" selection-start-column="61" selection-end-column="61" />
+          <caret column="61" selection-start-column="61" selection-end-column="61" />
           <folding>
             <element signature="e#814#829#0" expanded="true" />
           </folding>
@@ -793,38 +770,67 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/DjangoWebApp1/WebScraping/WebScrapingDemo1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="37" column="10" lean-forward="true" selection-start-line="37" selection-start-column="10" selection-end-line="37" selection-end-column="10" />
+        <state relative-caret-position="595">
+          <caret line="37" column="10" selection-start-line="37" selection-start-column="10" selection-end-line="37" selection-end-column="10" />
           <folding>
             <element signature="e#1422#1504#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/xlWings/xlWings_app_test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/DjangoWebApp1/WebScraping/Justice/justiceForm.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-102">
-          <caret line="87" lean-forward="true" selection-start-line="87" selection-end-line="87" />
-          <folding>
-            <element signature="e#558#581#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="629">
+          <caret line="87" selection-start-line="87" selection-end-line="87" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/ProgramData/Anaconda3/Lib/site-packages/selenium/webdriver/chrome/webdriver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="52" selection-start-line="52" selection-end-line="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/ProgramData/Anaconda3/Lib/genericpath.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/ProgramData/Anaconda3/Lib/site-packages/slate3k/classes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="54" selection-start-line="54" selection-end-line="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/ProgramData/Anaconda3/Lib/codecs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="458">
+          <caret line="310" selection-start-line="310" selection-end-line="310" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DjangoWebApp1/WebScraping/LoadISIR/RenameClientsFolders_CollCase.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="49" lean-forward="true" selection-start-line="49" selection-end-line="56" selection-end-column="59" />
-          <folding>
-            <element signature="e#1#10#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-2278">
+          <caret line="4" selection-start-line="4" selection-end-line="4" selection-end-column="48" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DjangoWebApp1/WebScraping/Justice/get_PM_decisions.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="30" lean-forward="true" selection-start-line="30" selection-end-line="30" />
+        <state relative-caret-position="371">
+          <caret line="102" column="50" lean-forward="true" selection-start-line="102" selection-start-column="50" selection-end-line="102" selection-end-column="50" />
           <folding>
             <element signature="e#88#111#0" expanded="true" />
           </folding>
