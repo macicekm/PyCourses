@@ -22,12 +22,17 @@ import logging
 
 import requests
 from bs4 import BeautifulSoup
+import re
+import cx_Oracle
+import pandas as pd
+
+
 
 # Set global parameters
 logging.basicConfig(filename='get_PM_decisions.log', filemode='w', format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 dtime_start = datetime.datetime.now()
 path_to_driver = 'D:\\Users\\mmacicek1695ab\\PycharmProjects\\PyCourses\\DjangoWebApp1\\WebScraping\\Justice\\chromedriver'
-
+schema = 'APP_COLL_JEZEVCIK_TEST'
 
 # Get clients
 path_to_csv = "D:\\Users\\mmacicek1695ab\\Desktop\\Work\\Tasks\\GITProjects\\test\\FilesFromJustice\\collection_cases.csv"
@@ -38,6 +43,54 @@ with open(path_to_csv) as csvfile:
 
     for row in reader:
         cc_dict[row['COLLECTION_CASE']] = row['FOLDER_NAME']
+
+
+import os
+
+ORACLE_HOME="C:\\oracle\\product\\12.2.0\\client_1"
+LD_LIBRARY_PATH = ORACLE_HOME + '\\lib'
+PATH = ORACLE_HOME + '\\bin'
+
+os.environ['ORACLE_HOME'] = ORACLE_HOME
+os.environ['LD_LIBRARY_PATH'] = LD_LIBRARY_PATH
+os.environ['PATH'] = PATH
+
+
+
+CONN_INFO = {
+    'host': 'DBHDWMN.BANKA.HCI',
+    'port': 1521,
+    'user': 'MMACICEK1695AB',
+    'psw': input("Zadej heslo"),
+    'service': 'HDWMN.BANKA.HCI',
+}
+
+CONN_STR = '{user}/{psw}@{host}:{port}/{service}'.format(**CONN_INFO)
+con = cx_Oracle.connect(CONN_STR)
+cur = con.cursor()
+
+sql = """
+      SELECT id_collection_case AS collection_case, NAME||' '||CUID||' CC'||id_collection_case AS FOLDER_NAME
+      from collection_case cc
+      JOIN person p ON cc.id_person = p.id_person
+      AND cc.flag_deleted = 'N' AND cc.flag_collected = 'Y'
+      WHERE mod(id_collection_case,500) = 0
+      """
+
+df = pd.read_sql(sql, con=con)
+
+sql = 'select 123 from dual'
+
+cur.execute(sql)
+
+for result in cur:
+    print(result)
+    print(type(result))
+con.commit()
+
+cur.close()
+con.close()
+
 
 
 # Set class
@@ -210,31 +263,29 @@ class InfoSoudClass(object):
 
         # Parse the html
         soup = BeautifulSoup(page.content, 'html.parser')
-        id_pm = "udalost15" + self.process_ids["org"] + self.process_ids["druhVec"] + self.process_ids["rocnik"] + self.process_ids["cisloSenatu"] + self.process_ids["bcVec"]
-        results = soup.find("a", {"id": id_pm})
-        # try:
-        #     pass
-        # except:
-        #     print("JEZ-78616: Error when parsing " + class_name + "INS: " + str(self.codeInsCase))
-        if not results is None:
+        # id_pm = "udalost15" + self.process_ids["org"] + self.process_ids["druhVec"] + self.process_ids["rocnik"] + self.process_ids["cisloSenatu"] + self.process_ids["bcVec"]
+        # result = soup.find("a", {"id": id_pm})
+        result = soup.find("a", text=re.compile(".*Datum pravomocného ukončení věci.*"))  # Text is stored with lots of spaces, its not possible to find it by id since it changes
+
+        if not result is None:
             return True
         else:
             return False
 
-        # Wait for 5 seconds - make it look more like a human behind his laptop
-        time.sleep(5)
+        # Wait for 3 seconds - make it look more like a human behind his laptop
+        time.sleep(3)
 
 ########################################################################################################################
 # This is the real executable code
 ########################################################################################################################
 
 # Infosoud
-if False:
+if True:
     info_soud = InfoSoudClass("55")
     print(info_soud.is_pm_info())
 
 # Infodokument Justice
-if True:
+if False:
     for cc in tqdm(cc_dict):
 
         print('Current collection case: ' + cc + ' folder: ' + cc_dict[cc])
@@ -244,3 +295,6 @@ if True:
 
 ########################################################################################################################
 print("Finished, time elapsed = " + str(round((datetime.datetime.now() - dtime_start).total_seconds()/60, 2)) + " minutes")
+
+
+

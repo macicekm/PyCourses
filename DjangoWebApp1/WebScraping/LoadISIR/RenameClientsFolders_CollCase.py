@@ -12,6 +12,16 @@ dtime_start = datetime.datetime.now()
 # use this command in command line xcopy /t /e "C:\Your Folder" "C:\New Folder"
 # it does not move files, only folders and subfolders
 
+# xcopy /t /e "W:\Vymahani\LATE\EPR\PODANÉ ŽALOBY" "D:\Users\mmacicek1695ab\Desktop\Work\Tasks\GITProjects\test\EPR_PODANÉ ŽALOBY"
+# xcopy /t /e "W:\Vymahani\LATE\EPR\NACHYSTANÉ" "D:\Users\mmacicek1695ab\Desktop\Work\Tasks\GITProjects\test\EPR_NACHYSTANÉ"
+# xcopy /t /e "W:\Vymahani\LATE\EPR\DEBETY" "D:\Users\mmacicek1695ab\Desktop\Work\Tasks\GITProjects\test\EPR_DEBETY"
+# xcopy /t /e "W:\Vymahani\LATE\EXEKUCE\PODANÉ" "D:\Users\mmacicek1695ab\Desktop\Work\Tasks\GITProjects\test\EXE_PODANÉ"
+# xcopy /t /e "W:\Vymahani\LATE\EXEKUCE\PŘIPRAVENÉ" "D:\Users\mmacicek1695ab\Desktop\Work\Tasks\GITProjects\test\EXE_PŘIPRAVENÉ"
+# xcopy /t /e "W:\Vymahani\LATE\Insolvence\PŘIPRAVENÉ" "D:\Users\mmacicek1695ab\Desktop\Work\Tasks\GITProjects\test\INS_PŘIPRAVENÉ"
+# xcopy /t /e "W:\Vymahani\LATE\Insolvence\PŘIHLÁŠENÉ" "D:\Users\mmacicek1695ab\Desktop\Work\Tasks\GITProjects\test\INS_PŘIHLÁŠENÉ"
+# xcopy /t /e "W:\Vymahani\LATE\DĚDICKÉ" "D:\Users\mmacicek1695ab\Desktop\Work\Tasks\GITProjects\test\DĚDICKÉ"
+# xcopy /t /e "W:\Vymahani\LATE\DĚDICOVÉ" "D:\Users\mmacicek1695ab\Desktop\Work\Tasks\GITProjects\test\DĚDICOVÉ"
+
 
 # PROD FOLDERS
 # folders_dict = {
@@ -38,8 +48,8 @@ folders_dict = {
     "InsPrihlasene": "D:\\Users\\mmacicek1695ab\\Desktop\\Work\\Tasks\\GITProjects\\test\\INS_PŘIHLÁŠENÉ",
     "DED": "D:\\Users\\mmacicek1695ab\\Desktop\\Work\\Tasks\\GITProjects\\test\\DĚDICKÉ",
     "DEDICOVE": "D:\\Users\\mmacicek1695ab\\Desktop\\Work\\Tasks\\GITProjects\\test\\DĚDICOVÉ",
-    "TEST_EPR": "D:\\Users\\mmacicek1695ab\\Desktop\\Work\\Tasks\\GITProjects\\test\\TEST_EPR_PODANE",
-    "TEST_EXE": "D:\\Users\\mmacicek1695ab\\Desktop\\Work\\Tasks\\GITProjects\\test\\TEST_EXE_PRIPRAVENE"
+    # "TEST_EPR": "D:\\Users\\mmacicek1695ab\\Desktop\\Work\\Tasks\\GITProjects\\test\\TEST_EPR_PODANE",
+    # "TEST_EXE": "D:\\Users\\mmacicek1695ab\\Desktop\\Work\\Tasks\\GITProjects\\test\\TEST_EXE_PRIPRAVENE"
 }
 
 # generate this dictionary from a database in a following way CUID: ID_COLL_CASE
@@ -62,6 +72,7 @@ with open(path_to_csv) as csvfile:
 
 ##############################################################################################################################################################
 # Deployment code
+
 
 print('--X--X--X--X--')
 print('Renaming Folders')
