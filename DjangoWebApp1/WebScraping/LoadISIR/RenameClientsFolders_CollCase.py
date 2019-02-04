@@ -1,8 +1,9 @@
 
 import os
-import csv
 import datetime
 from tqdm import tqdm  # progress bar in console
+import cx_Oracle
+import pandas as pd
 
 dtime_start = datetime.datetime.now()
 
@@ -47,28 +48,38 @@ folders_dict = {
     "InsPripravene": "D:\\Users\\mmacicek1695ab\\Desktop\\Work\\Tasks\\GITProjects\\test\\INS_PŘIPRAVENÉ",
     "InsPrihlasene": "D:\\Users\\mmacicek1695ab\\Desktop\\Work\\Tasks\\GITProjects\\test\\INS_PŘIHLÁŠENÉ",
     "DED": "D:\\Users\\mmacicek1695ab\\Desktop\\Work\\Tasks\\GITProjects\\test\\DĚDICKÉ",
-    "DEDICOVE": "D:\\Users\\mmacicek1695ab\\Desktop\\Work\\Tasks\\GITProjects\\test\\DĚDICOVÉ",
-    # "TEST_EPR": "D:\\Users\\mmacicek1695ab\\Desktop\\Work\\Tasks\\GITProjects\\test\\TEST_EPR_PODANE",
-    # "TEST_EXE": "D:\\Users\\mmacicek1695ab\\Desktop\\Work\\Tasks\\GITProjects\\test\\TEST_EXE_PRIPRAVENE"
+    "DEDICOVE": "D:\\Users\\mmacicek1695ab\\Desktop\\Work\\Tasks\\GITProjects\\test\\DĚDICOVÉ"
 }
+
+
+##############################################################################################################################################################
+# Connect to database and get clients identifiers
+
+CONN_INFO = {
+    'host': 'DBHDWMN.BANKA.HCI',
+    'port': 1521,
+    'user': 'MMACICEK1695AB',
+    'psw': input('Zadej heslo do databáze'),
+    'service': 'HDWMN.BANKA.HCI',
+}
+
+CONN_STR = '{user}/{psw}@{host}:{port}/{service}'.format(**CONN_INFO)
+con = cx_Oracle.connect(CONN_STR)
+
+schema = 'APP_COLL_JEZEVCIK'
 
 # generate this dictionary from a database in a following way CUID: ID_COLL_CASE
 # select p.NAME||' '||p.CUID AS FOLDER_NAME, cc.id_coll_case as COLL_CASE
-# from collection_case cc
-# join person p on cc.id_person = p.id_person
+# from schema.collection_case cc
+# join schema.person p on cc.id_person = p.id_person
+sql = """
+        select p.NAME||' '||p.CUID AS FOLDER_NAME, ROWNUM as COLL_CASE
+        FROM schema.person p
+      """
+sql = sql.replace('schema', schema)
 
-path_to_csv = "D:\\Users\\mmacicek1695ab\\Desktop\\Work\\Tasks\\GITProjects\\test\\cuidCCTranslator.csv"
-
-with open(path_to_csv) as csvfile:
-    reader = csv.DictReader(csvfile, delimiter=';')
-    clients_dict = {}
-
-    for row in reader:
-        clients_dict[row['FOLDER_NAME']] = row['COLL_CASE']
-
-
-
-
+df = pd.read_sql(sql, con=con)
+clients_dict = df.set_index('FOLDER_NAME')['COLL_CASE'].to_dict()
 
 ##############################################################################################################################################################
 # Deployment code
