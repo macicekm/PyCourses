@@ -81,6 +81,8 @@ sql = sql.replace('schema', schema)
 df = pd.read_sql(sql, con=con)
 clients_dict = df.set_index('FOLDER_NAME')['COLL_CASE'].to_dict()
 
+con.close()
+
 ##############################################################################################################################################################
 # Deployment code
 

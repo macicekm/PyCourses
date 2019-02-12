@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c70e15d6-d39b-41bb-8489-7c82c4ff30fb" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoWebApp1/WebScraping/Justice/get_PM_decisions.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjangoWebApp1/WebScraping/Justice/get_PM_decisions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DjangoWebApp1/WebScraping/LoadISIR/RenameClientsFolders_CollCase.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjangoWebApp1/WebScraping/LoadISIR/RenameClientsFolders_CollCase.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -56,11 +57,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RenameClientsFolders_CollCase.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RenameClientsFolders_CollCase.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DjangoWebApp1/WebScraping/LoadISIR/RenameClientsFolders_CollCase.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="188" column="36" lean-forward="true" selection-start-line="188" selection-start-column="36" selection-end-line="188" selection-end-column="36" />
+            <state relative-caret-position="2516">
+              <caret line="152" column="41" selection-start-line="152" selection-start-column="41" selection-end-line="152" selection-end-column="41" />
               <folding>
                 <element signature="e#1#10#0" expanded="true" />
               </folding>
@@ -68,11 +69,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="get_PM_decisions.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="get_PM_decisions.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DjangoWebApp1/WebScraping/Justice/get_PM_decisions.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="26" selection-start-line="26" selection-end-line="26" selection-end-column="19" />
+            <state relative-caret-position="418">
+              <caret line="191" column="20" lean-forward="true" selection-start-line="191" selection-start-column="20" selection-end-line="191" selection-end-column="20" />
+              <folding>
+                <element signature="e#88#111#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -99,6 +103,9 @@
       <find>\</find>
       <find>&quot;, # (‎12. ‎prosince ‎2018, ‏‎12:00)&quot;,</find>
       <find>(‎12. ‎prosince ‎2018, ‏‎12:00)</find>
+      <find>cc_dict</find>
+      <find>split</find>
+      <find>NullPDFTextError</find>
     </findStrings>
     <replaceStrings>
       <replace>courtCode</replace>
@@ -152,8 +159,9 @@
         <option value="$PROJECT_DIR$/DjangoWebApp1/WebScraping/Justice/justiceForm.py" />
         <option value="$PROJECT_DIR$/xlWings/xlWings_app_test.py" />
         <option value="$PROJECT_DIR$/connect_AB_DWH.py" />
-        <option value="$PROJECT_DIR$/DjangoWebApp1/WebScraping/Justice/get_PM_decisions.py" />
         <option value="$PROJECT_DIR$/DjangoWebApp1/WebScraping/LoadISIR/RenameClientsFolders_CollCase.py" />
+        <option value="$PROJECT_DIR$/DjangoWebApp1/WebScraping/Justice/get_PM_decisions.py" />
+        <option value="$PROJECT_DIR$/docx_pdf_converter.py" />
       </list>
     </option>
   </component>
@@ -169,7 +177,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -177,10 +184,22 @@
               <item name="PyCourses" type="b2602c69:ProjectViewProjectNode" />
               <item name="PyCourses" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="PyCourses" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PyCourses" type="462c0819:PsiDirectoryNode" />
+              <item name="DjangoWebApp1" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="PyCourses" type="b2602c69:ProjectViewProjectNode" />
+              <item name="PyCourses" type="462c0819:PsiDirectoryNode" />
+              <item name="DjangoWebApp1" type="462c0819:PsiDirectoryNode" />
+              <item name="WebScraping" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -222,7 +241,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.RenameClientsFolders_CollCase">
+  <component name="RunManager" selected="Python.get_PM_decisions">
     <configuration name="RenameClientsFolders_CollCase" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="PyCourses" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -322,8 +341,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.RenameClientsFolders_CollCase" />
         <item itemvalue="Python.get_PM_decisions" />
+        <item itemvalue="Python.RenameClientsFolders_CollCase" />
         <item itemvalue="Python.justiceForm" />
         <item itemvalue="Python.WebScrapingDemo1" />
         <item itemvalue="Python.TkinterCalculator" />
@@ -453,7 +472,14 @@
       <option name="project" value="LOCAL" />
       <updated>1549036810682</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Change clients input from csv do database">
+      <created>1549274394466</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1549274394466</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -464,7 +490,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50052685" side_tool="true" weight="0.29162133" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.3297062" />
-      <window_info active="true" anchor="bottom" id="Python Console" order="7" sideWeight="0.49947312" visible="true" weight="0.304679" />
+      <window_info active="true" anchor="bottom" id="Python Console" order="7" sideWeight="0.49947312" visible="true" weight="0.19804135" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.23721436" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
@@ -481,21 +507,21 @@
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20864068" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3518268" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.1881081" />
+      <window_info active="true" anchor="bottom" id="Python Console" order="7" visible="true" weight="0.29162133" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.1881081" />
-      <window_info active="true" anchor="bottom" id="Python Console" order="7" visible="true" weight="0.29162133" />
     </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -518,7 +544,8 @@
     <MESSAGE value="Add loop, exception handling and logging" />
     <MESSAGE value="Add InfoSoudClass" />
     <MESSAGE value="Add connection to DTB" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add connection to DTB" />
+    <MESSAGE value="Change clients input from csv do database" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change clients input from csv do database" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -529,7 +556,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="70" />
+      <option name="time" value="76" />
     </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
@@ -542,20 +569,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/P_Data_Science_Handbook_Pandas.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1564">
-          <caret line="93" column="2" selection-start-line="93" selection-start-column="2" selection-end-line="93" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/courseLearnPython.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12886">
-          <caret line="758" selection-start-line="758" selection-end-line="758" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TkinterCurrencyConverter.py" />
     <entry file="file://$PROJECT_DIR$/SimpleGUItkinter.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -796,31 +809,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/ProgramData/Anaconda3/Lib/genericpath.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://C:/ProgramData/Anaconda3/Lib/site-packages/colorama/ansitowin32.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="36" selection-start-line="36" selection-end-line="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/xlWings/xlWings_app_test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="17" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DjangoWebApp1/WebScraping/Justice/justiceForm.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="2" selection-start-column="2" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -831,19 +823,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DjangoWebApp1/WebScraping/Justice/get_PM_decisions.py">
+    <entry file="file://$USER_HOME$/Desktop/Work/Tasks/GITProjects/jezevcik/RISK-1585/RenameClientsFolders_CollCase.py" />
+    <entry file="file://C:/ProgramData/Anaconda3/Lib/site-packages/colorama/ansitowin32.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="26" selection-start-line="26" selection-end-line="26" selection-end-column="19" />
+        <state relative-caret-position="510">
+          <caret line="36" selection-start-line="36" selection-end-line="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DjangoWebApp1/WebScraping/Justice/justiceForm.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="2" selection-start-column="2" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DjangoWebApp1/WebScraping/LoadISIR/RenameClientsFolders_CollCase.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="188" column="36" lean-forward="true" selection-start-line="188" selection-start-column="36" selection-end-line="188" selection-end-column="36" />
+        <state relative-caret-position="2516">
+          <caret line="152" column="41" selection-start-line="152" selection-start-column="41" selection-end-line="152" selection-end-column="41" />
           <folding>
             <element signature="e#1#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docx_pdf_converter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="15" column="7" lean-forward="true" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/ProgramData/Anaconda3/Lib/genericpath.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DjangoWebApp1/WebScraping/Justice/get_PM_decisions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="191" column="20" lean-forward="true" selection-start-line="191" selection-start-column="20" selection-end-line="191" selection-end-column="20" />
+          <folding>
+            <element signature="e#88#111#0" expanded="true" />
           </folding>
         </state>
       </provider>

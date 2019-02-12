@@ -34,62 +34,52 @@ dtime_start = datetime.datetime.now()
 path_to_driver = 'D:\\Users\\mmacicek1695ab\\PycharmProjects\\PyCourses\\DjangoWebApp1\\WebScraping\\Justice\\chromedriver'
 schema = 'APP_COLL_JEZEVCIK_TEST'
 
-# Get clients
-path_to_csv = "D:\\Users\\mmacicek1695ab\\Desktop\\Work\\Tasks\\GITProjects\\test\\FilesFromJustice\\collection_cases.csv"
 
-with open(path_to_csv) as csvfile:
-    reader = csv.DictReader(csvfile, delimiter=';')
-    cc_dict = {}
+# Connection to Oracle Class
 
-    for row in reader:
-        cc_dict[row['COLLECTION_CASE']] = row['FOLDER_NAME']
+class ABOracleConnClass(object):
+    def __init__(self, server, username):
+
+        def get_password(f_list):
+
+            import os
+
+            for file in f_list:
+                if os.path.exists(file):
+                    f = open(file, "r")
+                    res = f.readline().split(';')
+                    if res[0] == username:
+                        return res[1]
+                    else: input("Insert password")
+
+        services_dict = {
+            'PROD': {'host': 'DBHDWMN.BANKA.HCI', 'port': 1521, 'service': 'HDWMN.BANKA.HCI'},
+            'PREPROD': {'host': 'UF-SX06.BANKA.HCI', 'port': 1521, 'service': 'MNPPDW.BANKA.HCI'}
+        }
+
+        password_files_list = ["D:\\Users\\" + username + "\\Documents\\Jezevčík\\secret.txt",
+                               "C:\\Users\\" + username + "\\Documents\\Jezevčík\\secret.txt",
+                               "D:\\Users\\" + username + "\\Documents\\Uw_debt_report\\secret.txt",
+                               "C:\\Users\\" + username + "\\Documents\\Uw_debt_report\\secret.txt",
+        ]
 
 
-import os
-
-ORACLE_HOME="C:\\oracle\\product\\12.2.0\\client_1"
-LD_LIBRARY_PATH = ORACLE_HOME + '\\lib'
-PATH = ORACLE_HOME + '\\bin'
-
-os.environ['ORACLE_HOME'] = ORACLE_HOME
-os.environ['LD_LIBRARY_PATH'] = LD_LIBRARY_PATH
-os.environ['PATH'] = PATH
+        password = get_password(password_files_list)
 
 
+        conn_info = {
+            'host': services_dict[server]['host'],
+            'port': services_dict[server]['port'],
+            'user': username,
+            'psw': password,
+            'service': services_dict[server]['service'],
+        }
 
-CONN_INFO = {
-    'host': 'DBHDWMN.BANKA.HCI',
-    'port': 1521,
-    'user': 'MMACICEK1695AB',
-    'psw': input("Zadej heslo"),
-    'service': 'HDWMN.BANKA.HCI',
-}
+        self.conn_str = '{user}/{psw}@{host}:{port}/{service}'.format(**conn_info)
 
-CONN_STR = '{user}/{psw}@{host}:{port}/{service}'.format(**CONN_INFO)
-con = cx_Oracle.connect(CONN_STR)
-cur = con.cursor()
+    def con(self):
+        return cx_Oracle.connect(self.conn_str)
 
-sql = """
-      SELECT id_collection_case AS collection_case, NAME||' '||CUID||' CC'||id_collection_case AS FOLDER_NAME
-      from collection_case cc
-      JOIN person p ON cc.id_person = p.id_person
-      AND cc.flag_deleted = 'N' AND cc.flag_collected = 'Y'
-      WHERE mod(id_collection_case,500) = 0
-      """
-
-df = pd.read_sql(sql, con=con)
-
-sql = 'select 123 from dual'
-
-cur.execute(sql)
-
-for result in cur:
-    print(result)
-    print(type(result))
-con.commit()
-
-cur.close()
-con.close()
 
 
 
@@ -205,6 +195,7 @@ class InfoDocumentClass(object):
 
         browser.close()
 
+# This class is used when raising an error in InfoDocumentClass._get_process_ids()
 class NullPDFTextError(Exception):
     pass
 
@@ -279,13 +270,29 @@ class InfoSoudClass(object):
 # This is the real executable code
 ########################################################################################################################
 
+
+# Get clients
+sql = """
+      SELECT ID_COLLECTION_CASE, NAME||' '||CUID||' CC'||ID_COLLECTION_CASE AS FOLDER_NAME
+      from collection_case cc
+      JOIN person p ON cc.id_person = p.id_person
+      AND cc.flag_deleted = 'N' AND cc.flag_collected = 'Y'
+      WHERE mod(id_collection_case,500) = 0
+      """
+con = ABOracleConnClass('PROD', 'MMACICEK1695AB')
+df = pd.read_sql(sql, con=con.con())
+cc_dict = df.set_index('ID_COLLECTION_CASE')['FOLDER_NAME'].to_dict()
+
+con.close()
+
+
 # Infosoud
-if True:
+if False:
     info_soud = InfoSoudClass("55")
     print(info_soud.is_pm_info())
 
 # Infodokument Justice
-if False:
+if True:
     for cc in tqdm(cc_dict):
 
         print('Current collection case: ' + cc + ' folder: ' + cc_dict[cc])
@@ -295,6 +302,5 @@ if False:
 
 ########################################################################################################################
 print("Finished, time elapsed = " + str(round((datetime.datetime.now() - dtime_start).total_seconds()/60, 2)) + " minutes")
-
 
 
