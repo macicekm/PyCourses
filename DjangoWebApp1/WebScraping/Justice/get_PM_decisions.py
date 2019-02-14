@@ -39,7 +39,10 @@ schema = 'APP_COLL_JEZEVCIK_TEST'
 
 class ABOracleConnClass(object):
     def __init__(self, server, username):
-
+        """ initialize connection class
+        :param server: name of the server to connect to
+        :param username: login username
+        """
         def get_password(f_list):
 
             import os
@@ -78,6 +81,9 @@ class ABOracleConnClass(object):
         self.conn_str = '{user}/{psw}@{host}:{port}/{service}'.format(**conn_info)
 
     def con(self):
+        """ function returns connection to oracleDB
+        :return: Connection object
+        """
         return cx_Oracle.connect(self.conn_str)
 
 
