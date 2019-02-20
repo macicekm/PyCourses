@@ -1,113 +1,110 @@
 
 
+# This scripts works fine to save image of a decision tree
+# It requries binary target and some table with predictors stored on AB DWH
+# It can somehow handle categorical variables - effectively create dummies
+# Each dummy then enters as a separate variable into the tree
+
+# Author Martin Macíček
+
+
+__version__ = 1.0
+
+
+wget.download
+
 ###################################################################################################################
-## Import packages
+# Import packages
 
-# import libraries
 
-import sklearn.datasets as datasets
 import pandas as pd
-
+import cx_Oracle as cxO
 from sklearn.tree import DecisionTreeClassifier
-
 from sklearn.externals.six import StringIO
-from IPython.display import Image
 from sklearn.tree import export_graphviz
 import pydotplus
-
-import seaborn
 
 # set path to graphviz environment
 # Maybe this will work on your PC - if not set the path manually
 import os
 os.environ['PATH'].split(os.pathsep)
-
 os.environ['PATH'] += os.pathsep + 'C:\\ProgramData\\Anaconda3\\Library\\bin\\graphviz'
 ###################################################################################################################
-
 
 ###################################################################################################################
 # Load data
 
 # Sample select
+sql = """
+    SELECT * from ap_risk.mm_python_dec_tree_test_tmp
+"""
 
-# SELECT d.cnt_target_12_60
-# , to_number(ph.ab_score) AS ab_score, ph.vek
-# from owner_dwh.f_loan_at l
-# JOIN ap_risk.mm_v_defaults d ON l.skp_loan = d.SKP_LOAN
-# JOIN ap_risk.js_base_final js ON l.skp_application = js.skp_application
-# JOIN ap_risk.ph_scoring_vector_final ph ON js.skf_approval_process_last = ph.skf
-# WHERE d.cnt_target_12_60 >=0
-#   AND ROWNUM < 10000
-#   ORDER BY dbms_random.value
+conn_info = {
+            'host': 'DBHDWMN.BANKA.HCI',
+            'port': 1521,
+            'user': os.getlogin(),
+            'psw': input('enter password'),
+            'service': 'HDWMN.BANKA.HCI',
+        }
 
+conn_str = '{user}/{psw}@{host}:{port}/{service}'.format(**conn_info)
 
- # iris=datasets.load_iris()
- # df=pd.DataFrame(iris.data, columns=iris.feature_names)
- # y=iris.target
+conn = cxO.connect(conn_str, encoding="UTF-8", nencoding="UTF-8")
 
-dfImport = pd.read_excel("TreeSampleData.xlsx", sheet_name="Sheet1")
+df = pd.read_sql(sql, con=conn)
 
-target = 'TARGET_WITHDRAWN_100'
-
-df = dfImport[[target,'VEK',		'DEPENDENTPERSONNUM',	'CASHLOANSPAYMENTSSUM',	\
-               'CREDITLIMITSSUM',	'MLS',	'FLAG_CONFINCOME',	'CREDITAMOUNT',	'AMT_INCOME_MAIN', \
-               'SUMUNPAIDPRINCIPAL_FINAL',	'SUMA_SPLATEK_V_BRKI',	'RESIDUALAMOUNT_V_BRKI',	'AB_SCORE',	\
-               	'DISPO',	'DTI',	'DSTI',	'BRKI_SCORE',	\
-               'AMT_OVERDRAFT_LIMIT',	'DAYS_BETWEEN_ACT_FIRST_UTIL',]]
+conn.close()
 
 
+# Set what is the name of your target column
+target = 'CNT_TARGET_12_60'
 
-y = df[target]
 
 ###################################################################################################################
 # Simple stats
 
-df.head(5)
+print(df.head(5))
 
 print("Column headings:")
 print(df.columns)
 
-count_row = df.shape[0]  # gives number of row count
-count_col = df.shape[1]  # gives number of col count
-
-print(df[['CNT_TARGET_12_60']].mean()) # average default rate
-print(df[['CNT_TARGET_12_60']].sum())
-
-print("Number of rows " + str(count_row) + " and columns " + str(count_col))
-#print(count_row, count_col)
+print("Average def. rate is {def_rate} with {cnt_defs} defaulters".format(def_rate=df[[target]].mean(), cnt_defs=df[[target]].sum()))
+print("Number of rows {nrows} and columns {ncols}".format(nrows=str(df.shape[0]), ncols=str(df.shape[1])))
 
 ###################################################################################################################
+# Data handling and preparation
 
-# Převedení RG na integer
+# Get column types
+column_types = list(zip(df.columns, df.dtypes))
+cols_pred_cat = [col_name for col_name, dtype in column_types if dtype.name == 'category' or dtype.name == 'object']
+cols_pred_num = [col_name for col_name, dtype in column_types if ('float' in dtype.name) or ('int' in dtype.name)]
 
-# RGDict = {
-#     "A" : 1,
-#     "B" : 2,
-#     "C" : 3,
-#     "D":  4,
-#     "E":  5,
-#     "F":  6,
-#     "G":  7
-# }
+
+df_categorical = df[cols_pred_cat]
+df_numerical = df[cols_pred_num]
 
 # Replace nan values
-for column in df:
+for column in df_numerical:
     print(column)
-    df[column].fillna(-99999, inplace = True)
+    df_numerical[column].fillna(-99999, inplace=True)
 
+for column in df_categorical:
+    print(column)
+    df_categorical[column].fillna('XNA', inplace=True)
 
-# Odstranění některých sloupců
+# dummies matrix of 0 and 1
+one_hot_data = pd.get_dummies(df_categorical, drop_first=True)
 
-# decision tree zvladne pouze numericke
+# merge them back together
+df = df_numerical.join(one_hot_data)
+# set target
+y = df[target]
 
-# For categorical data use this link
-# https://stackoverflow.com/questions/38108832/passing-categorical-data-to-sklearn-decision-tree
+# drop target of predictors dataframe
+df.drop(target, inplace=True, axis=1)
 
-
-#del df['SKP_LOAN']
-del df[target]
-
+# get rid of rubbish
+del df_categorical, df_numerical, one_hot_data
 
 ###################################################################################################################
 # Decision Tree settings
@@ -117,7 +114,7 @@ minSamples = 100
 minSamplesLeaf = 50
 
 # inicializuj class
-dtree= DecisionTreeClassifier(criterion = criterion, max_depth = maxDepth, min_samples_split = minSamples, min_samples_leaf = minSamplesLeaf)
+dtree = DecisionTreeClassifier(criterion=criterion, max_depth=maxDepth, min_samples_split=minSamples, min_samples_leaf=minSamplesLeaf)
 
 # pust metodu fit
 
@@ -132,7 +129,7 @@ dot_data = StringIO()
 export_graphviz(dtree, out_file=dot_data,
                 filled=True, rounded=True,
                 special_characters=True,
-                feature_names= df.columns[:],
+                feature_names=df.columns[:],
                 proportion=True
                 )
 
